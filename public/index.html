@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI PC Builder Pro - منصة تصميم وتحليل التجميعات الذكية</title>
+  <meta name="description" content="منصة تصميم وتحليل التجميعات الذكية بالذكاء الاصطناعي Gemini 2.5 Flash مع قاعدة بيانات عالمية شاملة لأحدث قطع الحاسوب وأسعار الدولار وروابط أمازون والشركات الأصلية." />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <!-- ROG Header -->
+  <header class="rog-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <div class="rog-emblem">⚡</div>
+        <div class="brand-title">
+          <h1>AI PC Builder Pro - منصة تصميم وتحليل التجميعات الذكية</h1>
+          <div class="brand-subtitle">
+            <span><span class="status-dot"></span> محرك الذكاء الاصطناعي: <strong class="mono">Gemini 2.5 Flash (@google/genai)</strong></span>
+            <span>•</span>
+            <span id="datasetStatsBadge">قاعدة البيانات العالمية: 51,025+ قطعة معتمدة بالدولار ($)</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="nav-pills">
+        <a href="#budgetBuilderSection" class="nav-pill">💰 أفضل تجميعة حسب الميزانية</a>
+        <a href="#customBuilderSection" class="nav-pill active">🛠️ مصمم التجميعة (9 قطع)</a>
+        <a href="#aiAnalyzerSection" class="nav-pill">🧠 محلل الأداء والفريمات بالذكاء الاصطناعي</a>
+        <a href="#smartCartBox" class="nav-pill">🛒 سلة التجميعة الذكية (<span id="navTotalUsd" class="mono">$0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SERVICE 2: AI SMART BUDGET AUTO-BUILDER -->
+    <section id="budgetBuilderSection" class="budget-hero-card">
+      <div class="budget-hero-header">
+        <div>
+          <span class="section-badge">✨ الخدمة الذكية #2 • AI Smart Budget Auto-Builder</span>
+          <h2 style="font-size: 1.45rem; font-weight: 900;">أفضل تجميعة حسب الميزانية بالذكاء الاصطناعي</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">أدخل ميزانيتك بالدولار الأمريكي ($) ونوع استخدامك، وسيقوم الذكاء الاصطناعي باختيار أفضل 9 قطع متوافقة 100% عالمياً وإضافتها للسلة مع تفعيل روابط أمازون والشركات الأصلية وشرح سبب اختيار كل قطعة.</p>
+        </div>
+        <div style="display:flex; gap:0.5rem; align-items:center;">
+          <label style="display:flex; align-items:center; gap:0.4rem; font-size:0.85rem; cursor:pointer; background:rgba(255,255,255,0.05); padding:0.45rem 0.8rem; border-radius:8px; border:1px solid var(--border-subtle);">
+            <input type="checkbox" id="includeMonitorToggle" checked style="accent-color: var(--rog-red); width:16px; height:16px;" />
+            <span>تضمين الشاشة ضمن الميزانية</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="budget-controls-grid">
+        <div class="control-group">
+          <label for="budgetUsdInput">1. الميزانية بالدولار الأمريكي (Budget in USD $):</label>
+          <div class="input-with-presets">
+            <input type="number" id="budgetUsdInput" class="rog-input mono" value="2000" min="500" max="15000" step="50" placeholder="أدخل الميزانية بالدولار مثل 2000" />
+            <div class="budget-presets" id="budgetPresetButtons">
+              <button type="button" class="preset-chip" data-budget="750">$750</button>
+              <button type="button" class="preset-chip" data-budget="1200">$1,200</button>
+              <button type="button" class="preset-chip active" data-budget="2000">$2,000</button>
+              <button type="button" class="preset-chip" data-budget="3500">$3,500</button>
+              <button type="button" class="preset-chip" data-budget="5000">$5,000</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label for="targetUseSelect">2. نوع الاستخدام الأساسي (Target Use):</label>
+          <select id="targetUseSelect" class="rog-select">
+            <option value="gaming">🎮 ألعاب تنافسية وأعلى فريمات (Esports & Competitive Gaming 240Hz/480Hz)</option>
+            <option value="programming">💻 برمجة وتطوير أنظمة ثقيلة (Docker, Databases, Heavy Compilation)</option>
+            <option value="montage">🎬 مونتاج وصناعة محتوى 4K 120FPS (Premiere Pro, DaVinci Resolve, VFX)</option>
+            <option value="ultimate">🚀 تجميعة شاملة خارقة بلا حدود (Ultimate Gaming + 8K Montage + Local AI)</option>
+          </select>
+        </div>
+
+        <div>
+          <button type="button" id="btnSuggestBudgetBuild" class="btn-rog-primary" style="width: 100%; height: 52px;">
+            <span>🤖 اقترح لي أفضل تجميعة</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="budgetAiSummaryBanner" style="display:none; margin-top: 1.1rem; padding: 0.9rem 1.1rem; border-radius: 10px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); color: #d1fae5; font-size: 0.9rem; font-weight: 700;"></div>
+    </section>
+
+    <!-- LIVE GLOBAL AI PART FINDER -->
+    <section class="ai-finder-bar" aria-label="البحث العالمي الذكي عن القطع">
+      <div>
+        <select id="aiFinderCategory" class="rog-select" style="padding: 0.65rem 0.85rem;">
+          <option value="motherboard">اللوحة الأم (Motherboard)</option>
+          <option value="gpu">كرت الشاشة (GPU)</option>
+          <option value="cpu">المعالج (CPU)</option>
+          <option value="ram">الرامات (RAM)</option>
+          <option value="storage">التخزين (SSD / NVMe)</option>
+          <option value="cooler">مبرد المعالج (CPU Cooler)</option>
+          <option value="psu">مزود الطاقة (PSU)</option>
+          <option value="case">الكيس (Case)</option>
+          <option value="monitor">الشاشة (Monitor)</option>
+        </select>
+      </div>
+      <div>
+        <input type="text" id="aiFinderInput" class="rog-input" placeholder="ابحث عن أي قطعة نادرة أو حديثة عالمياً (مثال: ASUS ROG Crosshair X870E Extreme أو Crucial T705 4TB أو RTX 5090 Astral)..." />
+      </div>
+      <div>
+        <button type="button" id="btnAiFindPart" class="btn-cyber-cyan">
+          <span>🔍 جلب وإضافة بالذكاء الاصطناعي (Live AI Finder)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE BUILDER (9 SLOTS) + SMART SHOPPING CART -->
+    <section id="customBuilderSection" class="workspace-grid">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; margin-bottom:1rem;">
+          <div>
+            <h2 style="font-size:1.35rem; font-weight:900;">🛠️ مصمم التجميعة التفاعلي (9 فتحات أساسية)</h2>
+            <p style="color:var(--text-muted); font-size:0.86rem;">اختر أو ابحث داخل كل فئة، أو استعرض الكتالوج الكامل. كل قطعة مزودة بسعرها بالدولار ($) وزر الشراء من أمازون وموقع الشركة الأصلية.</p>
+          </div>
+          <button type="button" id="btnAnalyzeNowTop" class="btn-rog-primary">
+            <span>⚡ تحليل أداء التجميعة الآن</span>
+          </button>
+        </div>
+
+        <!-- 9 Slots Container -->
+        <div id="slotsContainer" class="slots-grid"></div>
+      </div>
+
+      <!-- SMART SHOPPING CART (سلة التجميعة الذكية) -->
+      <aside id="smartCartBox" class="smart-cart-panel">
+        <div class="cart-header">
+          <div>
+            <h3 style="font-size:1.15rem; font-weight:900;">🛒 سلة التجميعة الذكية</h3>
+            <span style="font-size:0.76rem; color:var(--text-muted);">تحديث لحظي للأسعار بالدولار الأمريكي ($)</span>
+          </div>
+          <span id="cartCompatBadge" class="meta-chip highlight">متوافق 100%</span>
+        </div>
+
+        <div class="cart-total-banner">
+          <div>
+            <div style="font-size:0.8rem; color:#cbd5e1; font-weight:700;">إجمالي تكلفة التجميعة (Total Build Cost)</div>
+            <div style="font-size:0.74rem; color:var(--text-muted);">شامل جميع الـ 9 قطع المختارة</div>
+          </div>
+          <div id="cartTotalUsd" class="total-price-usd">$0</div>
+        </div>
+
+        <div id="cartItemsList" class="cart-items-list"></div>
+
+        <div class="cart-actions-stack">
+          <button type="button" id="btnAnalyzeNowCart" class="btn-rog-primary" style="width:100%;">
+            <span>🧠 تحليل أداء التجميعة الآن (AI Analyzer)</span>
+          </button>
+
+          <button type="button" id="btnBuyAllAmazon" class="btn-amazon" style="width:100%; padding:0.75rem; font-size:0.9rem;">
+            <span>🛍️ شراء كامل السلة من أمازون (Open All Cart Items on Amazon)</span>
+          </button>
+
+          <div class="btn-share-row">
+            <button type="button" id="btnShareBuildLink" class="btn-outline-util">
+              🔗 مشاركة رابط التجميعة
+            </button>
+            <button type="button" id="btnExportPdfCopy" class="btn-outline-util">
+              📄 تصدير PDF / نسخ القائمة
+            </button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICE 1: AI CUSTOM BUILD ANALYZER DASHBOARD -->
+    <section id="aiAnalyzerSection" class="analyzer-section">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.2rem;">
+        <div>
+          <span class="section-badge">🧠 الخدمة الذكية #1 • AI Custom Build Analyzer</span>
+          <h2 style="font-size:1.5rem; font-weight:900;">لوحة تحليل التجميعة والفريمات وعنق الزجاجة بالذكاء الاصطناعي</h2>
+        </div>
+        <div style="display:flex; gap:0.6rem; align-items:center;">
+          <span id="analyzerEngineBadge" class="meta-chip highlight mono">Gemini 2.5 Flash + Local Benchmark Engine</span>
+        </div>
+      </div>
+
+      <!-- AI Expert Verdict -->
+      <div id="aiExpertVerdictBox" class="ai-verdict-box">
+        جاري تحليل التجميعة...
+      </div>
+
+      <!-- Top KPIs -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div style="font-size:0.84rem; color:var(--text-muted); font-weight:700;">تقييم الأداء في الألعاب (Gaming Rating)</div>
+          <div id="kpiGamingScore" class="kpi-score" style="color:var(--neon-green);">96 / 100</div>
+          <div id="kpiGamingLabel" style="font-size:0.78rem; color:#cbd5e1;">أداء 4K 120Hz+ و 2K 240Hz+ خارق</div>
+        </div>
+
+        <div class="kpi-card">
+          <div style="font-size:0.84rem; color:var(--text-muted); font-weight:700;">تقييم الوركستيشن والمونتاج والبرمجة</div>
+          <div id="kpiWorkstationScore" class="kpi-score" style="color:var(--cyber-cyan);">94 / 100</div>
+          <div id="kpiWorkstationLabel" style="font-size:0.78rem; color:#cbd5e1;">مثالي للبرمجة الثقيلة ومونتاج 4K 120FPS</div>
+        </div>
+
+        <div class="kpi-card">
+          <div style="font-size:0.84rem; color:var(--text-muted); font-weight:700;">نسبة عنق الزجاجة (Bottleneck %)</div>
+          <div id="kpiBottleneckPercent" class="kpi-score" style="color:#facc15;">2.4%</div>
+          <div id="kpiBottleneckType" style="font-size:0.78rem; color:#cbd5e1;">توازن مثالي (Zero Bottleneck)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div style="font-size:0.84rem; color:var(--text-muted); font-weight:700;">استهلاك الطاقة ومزود الطاقة</div>
+          <div id="kpiPowerUsage" class="kpi-score" style="color:#ff4d79;">605W / 1000W</div>
+          <div id="kpiPowerLabel" style="font-size:0.78rem; color:#cbd5e1;">هامش أمان ممتاز ATX 3.1</div>
+        </div>
+      </div>
+
+      <!-- 1. Compatibility & Bottleneck Analysis -->
+      <h3 style="font-size:1.18rem; font-weight:800; margin-bottom:0.85rem; color:var(--cyber-cyan);">1. فحص التوافق الدقيق وعنق الزجاجة (Compatibility & Bottleneck Analysis)</h3>
+      <div id="compatChecksGrid" class="compat-grid"></div>
+      <div id="bottleneckAdviceBanner" style="margin-bottom:1.8rem; padding:0.95rem 1.2rem; border-radius:10px; background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); font-size:0.9rem;"></div>
+
+      <!-- 2. Gaming Performance & FPS Table -->
+      <h3 style="font-size:1.18rem; font-weight:800; margin-bottom:0.85rem; color:var(--neon-green);">2. الأداء في الألعاب وجدول الفريمات المتوقع (Estimated FPS @ 1080p / 2K 144Hz-240Hz / 4K 120Hz+)</h3>
+      <div class="fps-table-wrap">
+        <table class="fps-table">
+          <thead>
+            <tr>
+              <th>اللعبة (Game Title)</th>
+              <th>الإعدادات الرسومية</th>
+              <th>دقة 1080p (FHD Esports)</th>
+              <th>دقة 2K (1440p @ 144Hz/240Hz)</th>
+              <th>دقة 4K (2160p @ 120Hz+)</th>
+            </tr>
+          </thead>
+          <tbody id="fpsTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- 3. Workstation, Programming, 4K/120fps Montage & AI -->
+      <h3 style="font-size:1.18rem; font-weight:800; margin-bottom:0.85rem; color:#c084fc;">3. الأداء في البرمجة وتطوير الأنظمة والمونتاج السينمائي 4K/120fps والذكاء الاصطناعي</h3>
+      <div id="workstationCardsGrid" class="workstation-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- Full Category Catalog & Multi-Amazon Modal -->
+  <div id="catalogModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle" style="font-size:1.15rem; font-weight:900;">استعراض الكتالوج العالمي</h3>
+        <button type="button" id="btnCloseModal" class="btn-outline-util">✕ إغلاق</button>
+      </div>
+      <div style="padding: 0.85rem 1.4rem; border-bottom: 1px solid var(--border-subtle); display:flex; gap:0.65rem;">
+        <input type="text" id="modalSearchInput" class="rog-input" placeholder="ابحث بالاسم أو الموديل أو المقبس (مثال: ROG, X870E, 9800X3D, RTX 5090, 990 Pro)..." />
+      </div>
+      <div id="modalBodyList" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

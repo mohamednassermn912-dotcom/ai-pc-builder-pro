@@ -1,0 +1,19 @@
+{
+  "name": "ai-pc-builder-pro",
+  "version": "2.0.0",
+  "description": "AI PC Builder Pro - منصة تصميم وتحليل التجميعات الذكية بالذكاء الاصطناعي",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node scripts/seed_database.js",
+    "build": "node scripts/build_static.js",
+    "test": "node scripts/verify_all.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
