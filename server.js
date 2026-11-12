@@ -45,6 +45,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
     app: 'AI PC Builder Pro - منصة تصميم وتحليل التجميعات الذكية',
+    developer: 'المبرمج محمد بوشعالة',
     aiSdk: '@google/genai',
     aiModel: GEMINI_MODEL,
     fallbackEngine: 'Active (Zero-Downtime Local Benchmark & Compatibility Engine)',
